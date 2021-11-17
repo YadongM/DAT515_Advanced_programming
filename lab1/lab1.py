@@ -64,6 +64,8 @@ def build_tram_network(jsonobject, lines_path):
     info_stop = build_tram_stops(jsonobject)
     tram_lines,stop_time  = build_tram_lines(lines_path)
     tramnetwork = {'stops':info_stop, 'lines':tram_lines, 'times':stop_time}
+    with open('../data/tramnetwork.json', 'w') as f:
+        json.dump(tramnetwork, f)
     return tramnetwork
 
 
